@@ -1,5 +1,8 @@
+import { GatewayIntentBits as IntentBits } from 'discord.js';
+
 const app = {
-  ownerId: "921403577539387454"
+  ownerId: "921403577539387454",
+  developers: ["921403577539387454", "469879141873745921"]
 };
 
 const events = {
@@ -41,7 +44,7 @@ const client = {
   keyword: "client",
   required: true,
   token: process.env.CLIENT_TOKEN,
-  intents: []
+  intents: [IntentBits.Guilds]
 
 }
 
