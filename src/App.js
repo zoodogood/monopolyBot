@@ -6,6 +6,8 @@ import { getI18nManager } from '@module/I18nManager';
 import importCommands from '@lib/import-commands';
 import importEvents   from '@lib/import-events';
 
+import { App as StructureApp } from '@app/structures';
+
 import EventEmitter from 'events';
 
 
@@ -60,8 +62,12 @@ class App {
 
 
 
-  launch(){
+  async launch(){
     this.emitter.emit("launch-start");
+
+    this.data = await this.database.select(
+      new StructureApp()
+    );
 
     this.events.each((event) => event.handle());
     this.client.login(this.config.client.token);
