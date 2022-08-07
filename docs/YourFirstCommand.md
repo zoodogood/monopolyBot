@@ -53,7 +53,7 @@ const component = {
   customId: "@command/.snippet/example:(0)"
   // ...другие свойства 
 }
-new MessageConstructor({
+CreateMessage({
   //...
   components: component
 })
