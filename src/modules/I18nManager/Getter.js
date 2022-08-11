@@ -17,12 +17,12 @@ class Getter {
     const fullKey = (locale, key) => `${ locale }.${ base }.${ key }`;
 
     const contentsList = constructor.i18n.content;
-    
+
     const content =
       contentsList[ fullKey(locale, key) ] ?? contentsList[ fullKey(defaultLocale, key) ];
 
     const value = typeof content === "function" ?
-      content() :
+      content(args) :
       content;
 
     return value;
