@@ -1,3 +1,5 @@
 node_modules
 .env
 package-lock.json
+suite/public/build
+suite/public/docs
