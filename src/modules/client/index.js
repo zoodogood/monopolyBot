@@ -9,4 +9,4 @@ function getClient(options){
 
 
 
-export { getClient };
+export { getClient, Client };

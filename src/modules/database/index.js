@@ -6,4 +6,4 @@ const getDatabase = async ({host, token}) => {
   return database;
 }
 
-export { getDatabase };
+export { getDatabase, Database };
