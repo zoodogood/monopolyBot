@@ -1,11 +1,17 @@
 input: .
 output: .retype
-url: # Add your website address here
+url: ./
 branding:
-  title: Project Name
-  label: Docs
+  title: MonopolyBot
+  label: Документация
 links:
-- text: Getting Started
-  link: https://retype.com/guides/getting-started/
+- text: Discord
+  link: https://discord.gg/Sr3P5fnkYW
 footer:
-  copyright: "&copy; Copyright {{ year }}. All rights reserved."
+  copyright: "&copy; Copyright {{ year }}. Все права должны быть защищены."
+generator:
+  recase: none
+edit:
+  repo: https://github.com/zoodogood/monopolyBot/edit/
+  base: ./docs
+  label: Вы можете отредактировать эту страницу
