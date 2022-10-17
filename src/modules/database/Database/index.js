@@ -1,76 +1,72 @@
 import createClient from './createClient.js';
 
+
 class Database {
-  constructor({host, token}){
-    this.client = createClient({host, token});
+
+  async connect({host, name}){
+    const mongoClient = createClient(host);
+    await mongoClient.connect();
+
+    const databaseClient = mongoClient.db(name);
+    this.client = databaseClient;
   }
+
 
   async update(source){
     this.#validationSource(source);
 
     const data = source.transfromToDatabase?.() ?? source;
 
+    const table = this.#getTable(source.type);
 
-    return await this.client
-      .from(source.table)
-      .update(data)
-      .eq("_key", source._key);
-
+    return await table.updateOne({primaryKey: source.primaryKey}, data);
   }
+
 
   async insert(source){
     this.#validationSource(source);
 
-    const data = source.transfromToDatabase ?
-      source.transfromToDatabase(source) :
-      source;
+    const data = source.transfromToDatabase?.() ?? source;
 
-    return await this.client
-      .from(source.table)
-      .insert([ data ]);
+    const table = this.#getTable(source.type);
 
+    return await table.insertOne(data);
   }
+
 
   async delete(source){
     this.#validationSource(source);
 
-    return await this.client
-      .from(source.table)
-      .delete(data)
-      .eq("_key", source._key);
+    const table = this.#getTable(source.type);
+
+    return await table.deleteOne({primaryKey: source.primaryKey});
   }
 
-  async select(source){
+
+  async find(source){
     this.#validationSource(source);
 
-    const result = await this.client
-      .from(source.table)
-      .select()
-      .eq("_key", source._key);
+    const table = this.#getTable(source.type);
 
-    const data = result.data.at(0);
-
-    return source.transfromFromDatabase ?
-      source.transfromFromDatabase(data) :
-      Object.assign(source, data);
+    return await table.findOne({primaryKey: source.primaryKey});
   }
 
-  async selectAll({ table, filters }){
-    const query = this.client
-      .from(table)
-      .select();
 
-    filters.forEach(({method, args}) => query[method](args));
+  async select(source){
+    return await this.find(source) || await this.insert(source);
+  }
 
-    return await query;
+
+  #getTable(type){
+    return this.client.collection(type);
   }
 
   #validationSource(source){
-    if ("_key" in source === false)
-      throw new Error("Data source mush have key property");
+    if ("primaryKey" in source === false)
+      throw new Error(`Data source mush have "primaryKey" property`);
 
-    if ("table" in source === false)
-      throw new Error("Data source mush have table property");
+    if ("type" in source === false)
+      throw new Error(`Data source mush have "type" property`);
   }
 }
 

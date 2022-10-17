@@ -1,7 +1,8 @@
 import Database from './Database/index.js';
 
-const getDatabase = async ({host, token}) => {
-  const database = new Database({host, token});
+const getDatabase = async ({host, name}) => {
+  const database = new Database();
+  await database.connect({host, name});
 
   return database;
 }

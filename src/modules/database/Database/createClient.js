@@ -1,8 +1,10 @@
-import supabase from '@supabase/supabase-js';
+import { MongoClient } from 'mongodb';
 
 
-function createClient({host, token}){
-  return supabase.createClient(host, token);
+
+
+function createClient(url){
+  return new MongoClient(url);
 }
 
 

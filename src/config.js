@@ -29,8 +29,8 @@ const server = {
 const database = {
   keyword: "database",
   required: true,
-  host:  process.env.DATABASE_HOST,
-  token: process.env.DATABASE_TOKEN
+  host:  process.env.MONGODB_URL,
+  name:  process.env.DATABASE_NAME
 }
 
 const i18n = {
