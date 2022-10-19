@@ -1,4 +1,4 @@
-import BaseEvent from '@lib/baseEvent';
+import BaseEvent from '#lib/baseEvent.js';
 
 
 class Event extends BaseEvent {
