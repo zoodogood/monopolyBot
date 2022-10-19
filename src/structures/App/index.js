@@ -1,37 +1,22 @@
-import { Collection } from '@discordjs/collection';
-//import { Guild } from '@app/structures';
 
-//import { resolveId } from '@lib/util';
 
 class App {
   constructor(){
-    this.guilds = new Collection();
+    this.createdAt = Date.now();
   }
 
-  // getGuild(guildResolable){
-  //   if (!guildResolable)
-  //     throw new Error("guildResolable is null or undefined");
-  //
-  //   const id = resolveId(guildResolable);
-  //   if (this.guilds.has(id)){
-  //     return this.guilds.get(id);
-  //   }
-  //
-  //   const guild = new Guild(id);
-  //   this.guilds.set(guild.id, guild);
-  // }
-
-  get _key(){
+ 
+  get primaryKey(){
     return "main";
   }
 
-  get table(){
-    return "App";
+  get type(){
+    return "app";
   }
 
   transfromToDatabase(){
-
-    return {createdAt} = this;
+    const {createdAt, primaryKey} = this;
+    return {createdAt, primaryKey};
   }
 
   transfromFromDatabase(data){
