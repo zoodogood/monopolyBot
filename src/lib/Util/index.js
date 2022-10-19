@@ -31,6 +31,12 @@ class Util {
     return result(entire, float);
   }
 
+  static resolveId(resolable){
+    return typeof resolable === "object" ?
+      resolable.id :
+      resolable;
+      
+  }
 
 
 
