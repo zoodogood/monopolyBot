@@ -1,12 +1,12 @@
 
-import { getClient }      from '@module/client';
-import { getDatabase }    from '@module/database';
-import { getI18nManager } from '@module/I18nManager';
+import { getClient }      from '#module/client';
+import { getDatabase }    from '#module/database';
+import { getI18nManager } from '#module/I18nManager';
 
-import importCommands from '@lib/import-commands';
-import importEvents   from '@lib/import-events';
+import importCommands from '#lib/importCommands.js';
+import importEvents   from '#lib/importEvents.js';
 
-import { App as StructureApp } from '@app/structures';
+import StructureApp from '#structure/App';
 
 import EventEmitter from 'events';
 
@@ -68,6 +68,8 @@ class App {
     this.data = await this.database.select(
       new StructureApp()
     );
+
+
 
     this.events.each((event) => event.handle());
     this.client.login(this.config.client.token);
