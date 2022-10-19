@@ -1,43 +1,49 @@
 {
-  "name": "monopolyBot",
+  "name": "monopoly-bot",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.2",
   "description": "",
   "main": "src/index.js",
   "repository": "https://github.com/zoodogood/monopolyBot",
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "refresh": "node ./scripts/refreshSlashCommands/index.js",
+    "initialize": "node ./scripts/initialize/index.js",
+    "test": "node --test ./tests",
+    "database-init": "node ./scripts/CheckDatabase/index.js",
+    "refresh-discord-slash": "node ./scripts/refreshSlashCommands/index.js",
+    "retype-build": "retype build --output ./suite/public/docs ./docs",
     "retype": "retype watch ./docs",
-    "update-suite": "cd ./suite & npm run build & npm run gh-pages"
+    "update-suite": "cd ./suite & npm run build & cd ../ & npm run retype-build & cd ./suite & npm run gh-pages"
   },
   "author": "github.com/zoodogood",
   "license": "ISC",
   "dependencies": {
     "@app/structures": "file:src/structures",
-    "@bot/discord-util": "file:bot/modules/DiscordUtil",
     "@discordjs/collection": "^1.0.1",
     "@discordjs/rest": "^0.3.0",
     "@lib/baseCommand": "file:src/lib/BaseCommand",
     "@lib/baseEvent": "file:src/lib/baseEvent",
     "@lib/import-commands": "file:src/lib/importCommands",
     "@lib/import-events": "file:src/lib/importEvents",
-    "@lib/util": "file:modules/Util",
+    "@lib/util": "file:src/lib/Util",
     "@module/client": "file:src/modules/client",
     "@module/database": "file:src/modules/database",
     "@module/DataManager": "file:src/modules/DataManager",
     "@module/I18nManager": "file:src/modules/I18nManager",
-    "@supabase/supabase-js": "^1.35.3",
     "@zoodogood/import-directory": "^1.2.0",
-    "discord-api-types": "^0.31.0",
+    "discord-api-types": "^0.31.2",
     "discord.js": "^14.0.3",
     "dotenv": "^16.0.0",
     "fastify": "^4.3.0",
+    "mongodb": "^4.10.0",
     "vm2": "^3.9.10"
   },
   "devDependencies": {
-    "mocha": "^10.0.0",
     "retypeapp": "^2.4.0"
+  },
+  "imports": {
+    "#lib/*": "./src/lib/*",
+    "#structure/*": "./src/structures/*/index.js",
+    "#module/*": "./src/modules/*/index.js"
   }
 }
