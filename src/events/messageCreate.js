@@ -25,7 +25,7 @@ class Event extends BaseEvent {
       return;
     }
 
-    const commandName = match.at(1);
+    const commandName = match.at(0);
     executeCommand(message, commandName);
   }
 
@@ -39,7 +39,7 @@ export { Event };
 
 function executeCommand(message, commandName){
   const command = app.commands.get(commandName);
-
+  
   if (!command){
     return;
   }
