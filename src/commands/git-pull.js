@@ -8,7 +8,7 @@ class Command extends BaseCommand {
   
   async onChatInput(message){
     const stdout = execSync("git pull");
-    message.reply(`\`\`\`\n${ stdout }\`\`\``);
+    message.reply(`\`\`\`---\n${ stdout }\`\`\``);
   }
 
   static data = {
