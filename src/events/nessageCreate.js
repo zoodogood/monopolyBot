@@ -17,7 +17,7 @@ class Event extends BaseEvent {
       return;
     }
 
-    const match = message.content.match(COMMAND_NAME_REGEX)
+    const match = message.content.matchAll(COMMAND_NAME_REGEX)
       .next()
       .value;
 
@@ -37,8 +37,9 @@ class Event extends BaseEvent {
 export { Event };
 
 
-function executeCommand(message){
+function executeCommand(message, commandName){
   const command = app.commands.get(commandName);
+
   if (!command){
     return;
   }
