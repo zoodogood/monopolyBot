@@ -8,7 +8,10 @@ class Event extends BaseEvent {
 
 
   async run(interaction){
-    console.log(interaction);
+    if (interaction.isCommand()){
+      executeCommand(interaction);
+      return;
+    }
   }
 
   static data = {
@@ -17,3 +20,9 @@ class Event extends BaseEvent {
 }
 
 export { Event };
+
+
+function executeCommand(interaction){
+  const command = app.commands.get(interaction.commandName);
+  command.onSlashInteraction.call(command, interaction);
+}
