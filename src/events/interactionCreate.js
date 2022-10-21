@@ -14,7 +14,7 @@ class Event extends BaseEvent {
     }
   }
 
-  static data = {
+  static options = {
     name: "interactionCreate"
   }
 }

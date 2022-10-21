@@ -21,7 +21,7 @@ class Command extends BaseCommand {
 
   }
 
-  static data = {
+  static options = {
     name: "<NAME>",
     description: "<DESCRIPTION>",
     defaultMemberPermissions: 0

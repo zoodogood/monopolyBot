@@ -10,6 +10,10 @@ class Event extends BaseEvent {
   async run(){
 
   }
+
+  static options = {
+    name: "<NAME>"
+  }
 }
 
 export { Event };

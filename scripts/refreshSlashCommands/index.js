@@ -10,13 +10,13 @@ import importCommands from '@lib/import-commands';
 
 
 function needForward(command){
-  return !command.commandData.omit;
+  return !command.commandOptions.omit;
 }
 
 
 function transfromCommand(command){
-  const data = command.commandData;
-  return ApplicationCommandManager.transformCommand(data);
+  const options = command.commandOptions;
+  return ApplicationCommandManager.transformCommand(options);
 }
 
 

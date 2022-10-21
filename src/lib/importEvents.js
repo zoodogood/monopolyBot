@@ -10,7 +10,7 @@ const importEvents = async ({ path }) => {
 
   const entries = modules
     .map(({ Event }) => new Event())
-    .map((event) => [event.eventData.name, event]);
+    .map((event) => [event.eventOptions.name, event]);
 
   return new Collection(entries);
 }

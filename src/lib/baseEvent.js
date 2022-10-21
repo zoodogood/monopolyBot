@@ -41,8 +41,8 @@ class BaseEvent {
     this.run(...args);
   }
 
-  get eventData(){
-    return this.constructor.data;
+  get eventOptions(){
+    return this.constructor.options;
   }
 }
 

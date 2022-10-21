@@ -29,7 +29,7 @@ class Event extends BaseEvent {
     executeCommand(message, commandName);
   }
 
-  static data = {
+  static options = {
     name: "messageCreate"
   }
 }

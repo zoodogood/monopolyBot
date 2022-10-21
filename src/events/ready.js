@@ -39,7 +39,7 @@ class Event extends BaseEvent {
     green: "\x1b[32m%s\x1b[0m"
   }
 
-  static data = {
+  static options = {
     name: "ready"
   }
 }

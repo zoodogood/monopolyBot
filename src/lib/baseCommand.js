@@ -3,11 +3,11 @@ class BaseCommand {
 
   }
 
-  get commandData(){
-    return this.constructor.data;
+  get commandOptions(){
+    return this.constructor.options;
   }
 
-  static data = {
+  static options = {
 
   }
 }

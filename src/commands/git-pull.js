@@ -19,7 +19,7 @@ class Command extends BaseCommand {
     return new Receiver();
   }
 
-  static data = {
+  static options = {
     name: "git-pull",
     description: "Receive changes from github",
     omit: true

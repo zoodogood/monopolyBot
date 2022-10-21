@@ -9,7 +9,7 @@ const importCommands = async ({ path }) => {
 
   const entries = modules
     .map(({ Command }) => new Command())
-    .map((command) => [command.commandData.name, command]);
+    .map((command) => [command.commandOptions.name, command]);
 
   return new Collection(entries);
 }

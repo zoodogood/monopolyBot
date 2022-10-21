@@ -1,7 +1,7 @@
 import BaseCommand from '#lib/baseCommand.js';
 
 class Command extends BaseCommand {
-  static data = {
+  static options = {
     name: "game",
     description: "Launch a game"
   }
