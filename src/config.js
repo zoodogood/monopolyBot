@@ -40,11 +40,12 @@ const i18n = {
   defaultLocale: "ru"
 }
 
+
 const client = {
   keyword: "client",
   required: true,
   token: process.env.CLIENT_TOKEN,
-  intents: [IntentBits.Guilds]
+  intents: [IntentBits.Guilds, IntentBits.GuildMessages]
 
 }
 
