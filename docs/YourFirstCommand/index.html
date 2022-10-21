@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.719339405760">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.719663215225">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -30,12 +30,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=2.4.0.719339405760" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=2.4.0.719663215225" rel="stylesheet" />
 
-    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.719339405760" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.719663215225" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.719339405760" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.4.0.719339405760" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.719663215225" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.4.0.719663215225" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -211,7 +211,7 @@
 }
 export { Command };</code></pre>
 </doc-codeblock></div>
-<p><em>В каталоге <code v-pre>commands</code> находится файл <code v-pre>.snippet.js</code> — это минимальный фрагмент с кодом, который рекомендуется копировать как основу при создании новых команд.</em></p>
+<p><em>В каталоге <code v-pre>commands</code> находится файл <code v-pre>.snippet.js</code> — это минимальный фрагмент с кодом, его рекомендуется брать за основу при создании новых команд.</em></p>
 <doc-anchor-target id="как-отправить-ответ">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#как-отправить-ответ">#</doc-anchor-trigger>
@@ -256,7 +256,7 @@ CreateMessage({
     </h2>
 </doc-anchor-target>
 <ul>
-<li>Создавайте отдельные классы для логики команды. Экспортируемый класс <code v-pre>Command</code> используйте только как средство получения взаимодействий и ответов на них.</li>
+<li>Храните всю логику во вне. Команды не самодостаточные. Они — средство получения взаимодействий и ответов на них.</li>
 <li>Генерацию сообщений по возможности стоит выносить в отдельную/отдельные функции.</li>
 </ul>
 <doc-anchor-target id="нюансы-о-которых-стоит-знать">
