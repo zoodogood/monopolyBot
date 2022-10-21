@@ -1,5 +1,6 @@
 import BaseEvent from '#lib/baseEvent.js';
 
+const COMMAND_NAME_REGEX = /[a-zа-я$_ёъ\-]+/ig
 
 class Event extends BaseEvent {
   constructor(){
@@ -16,7 +17,7 @@ class Event extends BaseEvent {
       return;
     }
 
-    const match = message.content.match(/[a-zа-я$_ёъ]+/ig)
+    const match = message.content.match(COMMAND_NAME_REGEX)
       .next()
       .value;
 
