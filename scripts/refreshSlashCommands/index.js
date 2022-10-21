@@ -9,13 +9,24 @@ import { ApplicationCommandManager } from 'discord.js';
 import importCommands from '@lib/import-commands';
 
 
+function needForward(command){
+  return !command.commandData.omit;
+}
+
+
+function transfromCommand(command){
+  const data = command.commandData;
+  return ApplicationCommandManager.transformCommand(data);
+}
+
+
 
 const commands = await importCommands({path: config.commands.path});
 
 
 const commandsData = commands
-  .map(command => command.commandData)
-  .map(commandData => ApplicationCommandManager.transformCommand(commandData));
+  .filter(needForward)
+  .map(transfromCommand);
 
 
 const rest = new REST({ version: '10' }).setToken(process.env.CLIENT_TOKEN);
@@ -30,3 +41,4 @@ await rest.put(
 );
 
 console.info('Successfully reloaded application (/) commands.');
+
