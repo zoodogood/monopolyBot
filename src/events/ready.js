@@ -15,7 +15,7 @@ class Event extends BaseEvent {
     console.info(this.constructor.COLORS.green, `${ "\n".repeat(4) }Launched in ${ (timeSlice * 1000).toFixed(3) }ms:`);
 
     console.table({bot: data.bot});
-    console.info(data.url)
+    console.info(data.url);
 
     console.info(this.constructor.COLORS.green, "────────");
     console.info( "\n".repeat(4) );
