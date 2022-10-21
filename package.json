@@ -6,14 +6,14 @@
   "main": "src/index.js",
   "repository": "https://github.com/zoodogood/monopolyBot",
   "scripts": {
-    "start": "node ./src/index.js",
+    "start": "nodemon ./src/index.js",
     "initialize": "node ./scripts/initialize/index.js",
     "test": "node --test ./tests",
     "database-init": "node ./scripts/CheckDatabase/index.js",
     "refresh-discord-slash": "node ./scripts/refreshSlashCommands/index.js",
     "retype-build": "retype build --output ./suite/public/docs ./docs",
     "retype": "retype watch ./docs",
-    "update-suite": "cd ./suite & npm run build & cd ../ & npm run retype-build & cd ./suite & npm run gh-pages"
+    "suite-update": "cd ./suite & npm run build & cd ../ & npm run retype-build & cd ./suite & npm run gh-pages"
   },
   "author": "github.com/zoodogood",
   "license": "ISC",
@@ -45,5 +45,8 @@
     "#lib/*": "./src/lib/*",
     "#structure/*": "./src/structures/*/index.js",
     "#module/*": "./src/modules/*/index.js"
+  },
+  "nodemonConfig": {
+    "ignore": ["**/node_modules/**", "**/scripts/**", "**/tests/**", "./suite/public/build/**", "./suite/public/docs/**"]
   }
 }
