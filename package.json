@@ -44,7 +44,8 @@
   "imports": {
     "#lib/*": "./src/lib/*",
     "#structure/*": "./src/structures/*/index.js",
-    "#module/*": "./src/modules/*/index.js"
+    "#core/*": "./src/core/*.js",
+    "#config": "./src/default.config.js"
   },
   "nodemonConfig": {
     "ignore": ["**/node_modules/**", "**/scripts/**", "**/tests/**", "./suite/public/build/**", "./suite/public/docs/**"]
