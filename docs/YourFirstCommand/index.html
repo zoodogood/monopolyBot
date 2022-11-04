@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.719663486948">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.720881105425">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -30,12 +30,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=2.4.0.719663486948" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=2.4.0.720881105425" rel="stylesheet" />
 
-    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.719663486948" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.720881105425" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.719663486948" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.4.0.719663486948" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.720881105425" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.4.0.720881105425" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -174,8 +174,8 @@
     </h1>
 </doc-anchor-target>
 <p>Команда — это слово или фраза, которая сигнализирует о том, что необходимо выполнить заранее созданные инструкции. Выполнить слэш-команду — означает отреагировать на действия пользователя вызвавшего её — выполнить код и обязательно отправить ответ.</p>
-<p>Все команды находятся по пути <code v-pre>~/src/commands</code>. Это JavaScript файлы, которые автоматически импортируются. Каждый из них обязан экспортировать класс с именем <code v-pre>Command</code>. О содержимом которого поговорим в главе &quot;Тело команды&quot;.</p>
-<p>Список доступных команд также хранится на стороне Дискорда. Чтобы эти команды отображались, этот список требуется обновлять: см. скрипт <code v-pre>~/scripts/refreshCommands</code></p>
+<p>Все команды находятся по пути <code v-pre>~/src/commands</code>. Это JavaScript файлы, которые автоматически импортируются. Каждый из них обязан экспортировать класс с именем <code v-pre>Command</code>. Об этом далее.</p>
+<p>Список доступных команд хранится на стороне Дискорда и чтобы эти команды отображались, этот список требуется обновлять: см. скрипт <code v-pre>~/scripts/refreshCommands</code></p>
 <doc-anchor-target id="терминология">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#терминология">#</doc-anchor-trigger>
@@ -211,15 +211,15 @@
 }
 export { Command };</code></pre>
 </doc-codeblock></div>
-<p><em>В каталоге <code v-pre>commands</code> находится файл <code v-pre>.snippet.js</code> — это минимальный фрагмент с кодом, его рекомендуется брать за основу при создании новых команд.</em></p>
+<p><em>В каталоге <code v-pre>commands</code> находится файл <code v-pre>.snippet.js</code> — это минимальный фрагмент кода. Его рекомендуется брать за основу при создании новых команд.</em></p>
 <doc-anchor-target id="как-отправить-ответ">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#как-отправить-ответ">#</doc-anchor-trigger>
         <span>Как отправить ответ</span>
     </h2>
 </doc-anchor-target>
-<p>Как было сказано ранее, ответ отправить надо, иначе пользователь и Вы увидите ошибку.<br />
-Отправка происходит через взаимодействие с объектом <code v-pre>interaction</code>. Вам нужно через него отправить сообщение или отобразить модальное окно.<br />
+<p>Повторюсь, ответ отправить надо.<br />
+Отправка происходит через взаимодействие с объектом <code v-pre>interaction</code>. Вам нужно отправить сообщение или отобразить модальное окно.<br />
 Минимальный пример:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-javascript"><code v-pre class="language-javascript">const message = { content: &quot;hello, world&quot; };
@@ -234,7 +234,7 @@ interaction.reply(message);</code></pre>
 </doc-anchor-target>
 <p>Компоненты можно прикрепить к сообщению или к модельному окну. В обоих случаях требуется установить &quot;строку компонентов&quot;.<br />
 При использовании <code v-pre>CreateMessage</code> и <code v-pre>CreateModal</code> это происходит автоматически.</p>
-<p>Каждый из компонентов имеет уникальные свойства, которые должны быть указаны. Найти их можно <a href="">по ссылке</a>.</p>
+<p>Компоненты имеют специфичные свойства, которые должны быть указаны. Найти их список можно <a href="https://discord.com/developers/docs/interactions/message-components">по ссылке</a>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-javascript"><code v-pre class="language-javascript">const component = {
   type: ComponentType,
@@ -256,17 +256,18 @@ CreateMessage({
     </h2>
 </doc-anchor-target>
 <ul>
-<li>Храните всю логику во вне. Команды не самодостаточные. Они — средство получения взаимодействий и ответов на них.</li>
+<li>Храните всю логику во вне. Рассматривайте команды как средство обработки взаимодействий в формате вопрос-ответ.</li>
 <li>Генерацию сообщений по возможности стоит выносить в отдельную/отдельные функции.</li>
 </ul>
-<doc-anchor-target id="нюансы-о-которых-стоит-знать">
+<doc-anchor-target id="несколько-нюансов">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#нюансы-о-которых-стоит-знать">#</doc-anchor-trigger>
-        <span>Нюансы о которых стоит знать:</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#несколько-нюансов">#</doc-anchor-trigger>
+        <span>Несколько нюансов:</span>
     </h2>
 </doc-anchor-target>
 <p>*Стартовая точка приложения, которая получает данные об взаимодействии — это событие получаемое в <code v-pre>app.client.on()</code>, &quot;createInteraction&quot;. Данные передаются в обработчик <code v-pre>~/events/interactionCreate.js</code>, который по возможности вызывает один из методов: <code v-pre>onSlashInteraction</code> или <code v-pre>onComponentInteraction</code> соответствующей команды.</p>
-<p>*<code v-pre>CreateMessage</code> и <code v-pre>CreateModal</code> для трансформации компонентов используют утилиту <code v-pre>SimplifyComponents</code></p>
+<p>*<code v-pre>CreateMessage</code> и <code v-pre>CreateModal</code> для трансформации компонентов используют утилиту <code v-pre>SimplifyComponents</code>.</p>
+<p>*Вы можете обернуть список компонентов во второй по вложенности массив. Обратите на это внимание, если требуется добавить &quot;строку компонентов&quot;.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -292,10 +293,10 @@ CreateMessage({
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../installation/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../to-do-list/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Установка и запуск</span>
+                                                <span class="block mt-1">Список дел</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>

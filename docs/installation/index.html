@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.719663486948">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.720881105425">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -30,11 +30,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=2.4.0.719663486948" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=2.4.0.720881105425" rel="stylesheet" />
 
-    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.719663486948" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../resources/js/config.js?v=2.4.0.720881105425" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.719663486948" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.4.0.720881105425" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -176,9 +176,9 @@
 <ul>
 <li>Сохранить проект локально себе на компьютер.</li>
 <li>Установить все зависимости с помощью вызова команды пакетного менеджера.</li>
-<li>Указать &quot;переменные среды&quot;. Это необходимые для запуска данные, которые должны быть установлены каждым пользователем отдельно.</li>
+<li>Указать переменные среды.</li>
 </ul>
-<p>Кроме того у Вас должна быть установлена версия Node.js 18 или выше.</p>
+<p>Установленна версия Node.js 18 или выше.</p>
 <doc-anchor-target id="вы-будете-работать-с-терминалом">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#вы-будете-работать-с-терминалом">#</doc-anchor-trigger>
@@ -187,7 +187,7 @@
 </doc-anchor-target>
 <p>Другие назв.: командная строка, cmd.<br />
 Потребуются умения:<br />
-Запускать командную строку; Перемещаться по файловой системе с помощью команды <code v-pre>cd</code> (с англ. &quot;change directory&quot;); Переписывать и выполнять примеры ниже.</p>
+Запускать командную строку; Перемещаться по файловой системе с помощью команды <code v-pre>cd</code> (с англ. &quot;change directory&quot;); Воспроизводить примеры ниже.</p>
 <p><a href="https://gist.github.com/codedokode/10539568">Гайд по работе с cmd.</a></p>
 <hr />
 <doc-anchor-target id="установка-проекта-на-компьютер">
@@ -196,13 +196,12 @@
         <span>Установка проекта на компьютер:</span>
     </h3>
 </doc-anchor-target>
-<p>Во-первых, не паникуйте, на выбор предлагается целых ДВА варианта:</p>
+<p>Варианты:</p>
 <ul>
 <li>Воспользоваться интерфейсом GitHub.</li>
 <li>Выбрать <code v-pre>git</code>. Это многофункциональная программа с которой работают через терминал.</li>
 </ul>
-<p>А во-вторых, существует куча неординарных способов это сделать. Сломай систему!<br />
-<a href="https://www.google.com/search?q=how+to+download+zip+from+github&amp;oq=how+to+download+zip+">Как загрузить файлы через GitHub</a>
+<p><a href="https://www.google.com/search?q=how+to+download+zip+from+github&amp;oq=how+to+download+zip+">Как загрузить файлы через GitHub</a><br />
 <a href="https://www.google.com/search?q=%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B+%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B+%D1%81+git">Основы работы с Git</a></p>
 <doc-anchor-target id="установка-зависимостей-пакетов-модулей">
     <h3>
@@ -210,18 +209,15 @@
         <span>Установка зависимостей (пакетов, модулей):</span>
     </h3>
 </doc-anchor-target>
-<p>Для того, чтобы использовать один и тот же код множество раз, придумали общедоступный реестр пакетов. Один из плюсов которого — зависимости не занимают место на диске до того как будут установлены.</p>
-<p>То есть нам надо самим их установить. Для этого существует NPM — пакетный менеджер, который устанавливается вместе с Node.js.<br />
-Проверить его наличие можно введя в терминале <code v-pre>npm -v</code>. Если его нет, исправьте.</p>
-<doc-anchor-target id="команда-в-терминале">
+<p>Список модулей хранится в конфигурации проекта.
+Проверьте наличие пакетного менеджера указав в терминале <code v-pre>npm -v</code>.</p>
+<doc-anchor-target id="установить-модули">
     <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#команда-в-терминале">#</doc-anchor-trigger>
-        <span><strong>Команда в терминале:</strong></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#установить-модули">#</doc-anchor-trigger>
+        <span><strong>Установить модули</strong></span>
     </h5>
 </doc-anchor-target>
 <p><code v-pre>npm install</code> (или сокращённо <code v-pre>npm i</code>)</p>
-<p>Это установит зависимости. Также у Вас появится каталог в папке проекта: <code v-pre>node_modules</code>. Где они и будут храниться.<br />
-В случае чего этот каталог можно удалить.</p>
 <doc-anchor-target id="переменные-среды">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#переменные-среды">#</doc-anchor-trigger>
@@ -249,11 +245,11 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../YourFirstCommand/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../to-do-list/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Пособие по созданию команд</span>
+                                                <span class="block mt-1">Список дел</span>
                                             </span>
                                         </a>
                                     </div>
