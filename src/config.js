@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { GatewayIntentBits as IntentBits } from 'discord.js';
 
 const app = {
@@ -49,15 +50,10 @@ const client = {
 
 }
 
-const appPrepare = {
-  clearConsole: false
-};
-
 
 
 export default {
   app,
-  appPrepare,
   client,
   database,
   i18n,
