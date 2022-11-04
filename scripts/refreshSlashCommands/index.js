@@ -1,12 +1,12 @@
 import 'dotenv/config';
 
-import config from '../../src/config.js';
+import config from '#config';
 
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v10';
 
 import { ApplicationCommandManager } from 'discord.js';
-import importCommands from '@lib/import-commands';
+import importCommands from '#lib/importCommands.js';
 
 
 function needForward(command){
@@ -22,7 +22,6 @@ function transfromCommand(command){
 
 
 const commands = await importCommands({path: config.commands.path});
-
 
 const commandsData = commands
   .filter(needForward)
