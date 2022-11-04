@@ -1,10 +1,10 @@
 import BaseEvent from '#lib/baseEvent.js';
 import Client from '#structure/Client';
-
+import { client, commands, events } from '#core/exports';
 
 class Event extends BaseEvent {
   constructor(){
-    super(app.client, "ready");
+    super(client, "ready");
   }
 
 
@@ -22,16 +22,15 @@ class Event extends BaseEvent {
   }
 
   static getDisplayData(){
-    const client = app.client;
 
     return {
       bot: {
         id:       Number( client.user.id ),
         guilds:   client.guilds.cache.size,
-        commands: app.commands.size,
-        events:   app.events.size
+        commands: commands.collection.size,
+        events:   events.collection.size
       },
-      url: new Client(app.client).createInvite()
+      url: new Client(client).createInvite()
     }
   }
 

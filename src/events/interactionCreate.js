@@ -1,9 +1,10 @@
 import BaseEvent from '#lib/baseEvent.js';
+import { client, commands } from '#core/exports';
 
 
 class Event extends BaseEvent {
   constructor(){
-    super(app.client, "interactionCreate");
+    super(client, "interactionCreate");
   }
 
 
@@ -23,6 +24,6 @@ export { Event };
 
 
 function executeCommand(interaction){
-  const command = app.commands.get(interaction.commandName);
+  const command = commands.get(interaction.commandName);
   command.onSlashInteraction.call(command, interaction);
 }

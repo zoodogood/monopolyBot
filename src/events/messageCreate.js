@@ -1,10 +1,11 @@
 import BaseEvent from '#lib/baseEvent.js';
-
 const COMMAND_NAME_REGEX = /[a-zа-я$_ёъ\-]+/ig
+
+import { client } from '#core/exports';
 
 class Event extends BaseEvent {
   constructor(){
-    super(app.client, "messageCreate");
+    super(client, "messageCreate");
   }
 
 
