@@ -1,10 +1,7 @@
-import App from './App.svelte';
+import Welcome from './Welcome.svelte';
 
-const app = new App({
-	target: document.body,
-	props: {
-		name: 'Bot'
-	}
+const page = new Welcome({
+	target: document.body
 });
 
-export default app;
+export default page;
