@@ -6,7 +6,7 @@ class Client {
 		this.original = client;
 	}
 
-	createInvite(){
+	generateInvite(){
 		return generateInvite(this.original);
 	}
 }

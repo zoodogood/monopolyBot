@@ -30,7 +30,7 @@ class Event extends BaseEvent {
         commands: commands.collection.size,
         events:   events.collection.size
       },
-      url: new Client(client).createInvite()
+      url: new Client(client).generateInvite()
     }
   }
 
