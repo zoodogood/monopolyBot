@@ -1,7 +1,6 @@
 import BaseEvent from '#lib/baseEvent.js';
-const COMMAND_NAME_REGEX = /[a-zа-я$_ёъ\-]+/ig
 
-import { client } from '#core/exports';
+import { client, commands } from '#core/exports';
 
 class Event extends BaseEvent {
   constructor(){
@@ -10,24 +9,13 @@ class Event extends BaseEvent {
 
 
   async run(message){
-    if (!message.content){
-      return;
+    const info = CommandHandler.parseMessage(message);
+    if (info !== null){
+      const command = info.command;
+      CommandHandler.executeCommand(command, message);
     }
 
-    if (!message.mentions.has(app.client.user)){
-      return;
-    }
-
-    const match = message.content.matchAll(COMMAND_NAME_REGEX)
-      .next()
-      .value;
-
-    if (!match){
-      return;
-    }
-
-    const commandName = match.at(0);
-    executeCommand(message, commandName);
+    
   }
 
   static options = {
@@ -38,12 +26,33 @@ class Event extends BaseEvent {
 export { Event };
 
 
-function executeCommand(message, commandName){
-  const command = app.commands.get(commandName);
-  
-  if (!command){
-    return;
+ 
+
+class CommandHandler {
+  static executeCommand(command, message){
+    command.onChatInput.call(command, message);
   }
 
-  command.onChatInput.call(command, message);
+  static parseMessage(message){
+    if (!message.content){
+      return null;
+    }
+
+    if (!message.mentions.has(client.user)){
+      return null;
+    }
+
+    const content = message.content
+      .replace(RegExp(`<.{1,2}?${ client.user.id }>`), "")
+      .trim();
+    
+    const commandName = content
+      .split(" ").at(0);
+    
+    const command = commands.collection.get(commandName);
+    if (!command){
+      return null;
+    }
+    return { command };
+  }
 }
