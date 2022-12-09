@@ -35,7 +35,8 @@
     "#lib/*": "./src/lib/*",
     "#structure/*": "./src/structures/*/index.js",
     "#core/*": "./src/core/*.js",
-    "#config": "./src/config.js"
+    "#config": "./src/config.js",
+    "#module-lib": "./src/core/modules/*"
   },
   "nodemonConfig": {
     "ignore": ["**/node_modules/**", "**/scripts/**", "**/tests/**", "./suite/public/build/**", "./suite/public/docs/**"]
