@@ -30,7 +30,7 @@ class BaseEvent {
 
   freeze(){
     this.isListeningNow = false;
-    target.removeListener(callback, eventName);
+    target.removeListener(eventName, callback);
   }
 
   #beforeRun(...args){
